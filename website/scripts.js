@@ -1,4 +1,4 @@
- pic = new Array();
+ pic = new Array();;
 function loadXML(){
 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();

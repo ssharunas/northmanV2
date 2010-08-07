@@ -1,0 +1,1 @@
+Northman is a project for Javascript based web application – photo gallery. Main goal of this application is to provide flexible xml based image list extraction from host server and HTML code generation using retrieved image list. Content is cached and content can be split into groups.
