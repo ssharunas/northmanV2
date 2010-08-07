@@ -22,4 +22,5 @@ function IOCore(){
 	}
 }
 
-IOCore.inherits(IOInterface);
+//paveldejimo eilutė
+IOCore.prototype = new IOInterface();

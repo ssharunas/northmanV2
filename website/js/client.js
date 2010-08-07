@@ -12,7 +12,30 @@ function Client(){
 	}
 	
 	this.LoadPage = new function(groupName, page){
+		items = io.GetItems(groupName, page, picsPerPage);
+		gui.CreatePicturesPage(items);
 		
+		currentPage = 0;
+		currentGroup = groupName;
+	}
+	
+	this.NextPage = new function(){
+		currentPage ++;
+		LoadPage(currentGroup, currentPage);
+	}
+	
+	
+	this.PrevPage = new function(){
+		if(currentPage > 0){
+			currentPage--;
+			LoadPage(currentGroup, currentPage);
+		}
+	}
+	
+	this.LoadAll = new function(){
+		LoadMenu();
+		groups = io.GetSubGroupNames(null);
+		LoadPage(groups[0], 0);
 	}
 }
 

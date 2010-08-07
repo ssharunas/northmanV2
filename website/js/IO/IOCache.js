@@ -6,8 +6,13 @@ function IOCache(){
 	}
 	
 	this.GetItems = function (groupName, index, count){		
-		return ioCore.GetItems(groupName, index, count);
+		kintamasis = ioCore.GetItems(groupName, index, count);
+		
+		return kintamasis;
+		
+		//kesavimas
 	}
 }
 
-IOCore.inherits(IOInterface); 
+//paveldejimo eilutė
+IOCache.prototype = new IOInterface();
