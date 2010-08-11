@@ -1,18 +1,18 @@
-function IOCache(){
-	var ioCore = new IOCache();
+var IOCache = new Class({
 	
-	this.GetSubGroupNames = function(groupName){
+	implements : IOInterface,
+	
+	ioCore : new IOCache(),
+	
+	initialize: function(){
+		
+	},
+	
+	GetSubGroupNames : function(groupName){
 		return ioCore.GetSubGroupNames(groupName);
-	}
+	},
 	
-	this.GetItems = function (groupName, index, count){		
-		kintamasis = ioCore.GetItems(groupName, index, count);
-		
-		return kintamasis;
-		
-		//kesavimas
+	GetItems : function (groupName, index, count){
+		return ioCore.GetItems(groupName, index, count);
 	}
-}
-
-//paveldejimo eilutė
-IOCache.prototype = new IOInterface();
+})

@@ -1,10 +1,10 @@
-function IOInterface(){
+var IOInterface = new Class({
 	
-	this.GetSubGroupNames = function(groupName){
+	GetSubGroupNames : function(groupName){
+		return null;
+	},
+	
+	GetItems : function (groupName, index, count){
 		return null;
 	}
-	
-	this.GetItems = function (groupName, index, count){
-		return null;
-	}
-}
+})

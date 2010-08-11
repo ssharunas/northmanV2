@@ -1,26 +1,18 @@
-function IOCore(){
+var IOCore = new Class({
 	
-	this.GetSubGroupNames = function(groupName){
-		var groups = new Array();
-		
-		for(i = 0; i < 10; i++)
-			groups[i] = "Grupe " + i;
-		
-		groups[10] = new Array();
-		groups[10][0] = "Sub Grupe";
-		
-		return groups;
+	implements: IOInterface,
+	
+	initialize : function(){
+		this.reader = new XmlReader();
+	}
+					   
+	GetSubGroupNames : function(groupName){
+		return this.reader.CreateItemsAtPath("/root/group", ["group"]);
 	}
 	
-	this.GetItems = function (groupName, index, count){
+	GetItems : function (groupName, index, count){
 		var items = new Array();
-		
-		for(i = 0; i < 10; i++)
-			items[i] =  new ContentItem("picture" + i + ".jpg");
-		
-		return items;
+		return this.reader.CreateItemsAtPath("/root");
 	}
-}
+});
 
-//paveldejimo eilutė
-IOCore.prototype = new IOInterface();
