@@ -2,7 +2,7 @@ var IOCache = new Class({
 	
 	implements : IOInterface,
 	
-	ioCore : new IOCache(),
+	ioCore : new IOCore(),
 	
 	initialize: function(){
 		

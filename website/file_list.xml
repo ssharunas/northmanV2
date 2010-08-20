@@ -2,12 +2,39 @@
 <root>
 	<group name='Žmonės'>
 		<group name='Portretai'>
-			<pic>elias1.jpg</pic>
-			<pic>latin_america-229_(1).jpg</pic>
-			<pic>tango-344.jpg</pic>
-			<pic>tango-161.jpg</pic>
-			<pic>tango-11.jpg</pic>
-			<pic>tyli_moters_daina3.jpg</pic>
+			<pic>
+				<src>elias1.jpg</src>
+			</pic>
+			<pic src="latin_america-229_(1).jpg" title="Lotynų amerika"></pic>
+			<pic src="tango-344.jpg"></pic>
+			<pic>
+				<src>tango-161.jpg</src>
+				<title>Tang0</title>
+			</pic>
+			<pic><src>tango-11.jpg</src></pic>
+			<pic><src>tyli_moters_daina3.jpg</src></pic>
+		</group>
+	</group>
+	<group name='Žmonės2'>
+		<group name='Portretai2'>
+			<pic>
+				<src>elias1.jpg</src>
+			</pic>
+			<pic src="latin_america-229_(1).jpg"></pic>
+			<pic src="tango-344.jpg"></pic>
+			<pic><src>tango-161.jpg</src></pic>
+			<pic><src>tango-11.jpg</src></pic>
+			<pic><src>tyli_moters_daina3.jpg</src></pic>
+		</group>
+		<group name='Portretai3'>
+			<pic>
+				<src>elias1.jpg</src>
+			</pic>
+			<pic src="latin_america-229_(1).jpg"></pic>
+			<pic src="tango-344.jpg"></pic>
+			<pic><src>tango-161.jpg</src></pic>
+			<pic><src>tango-11.jpg</src></pic>
+			<pic><src>tyli_moters_daina3.jpg</src></pic>
 		</group>
 	</group>
 </root>
