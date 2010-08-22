@@ -11,8 +11,22 @@ var IOCore = new Class({
 	},
 	
 	GetItems : function (groupName, index, count){
-		var items = new Array();
-		return this.reader.CreateItemsAtPath("/root");
+		var result = null;
+		
+		if(groupName){
+			var items = new Array();
+			items = this.reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
+			
+			if(items){
+				var imgFrom = index * count;
+				items = items.slice(imgFrom, imgFrom + count);
+				
+				result = new CompositionContentItem();
+				result.children = items;
+			}
+		}
+		
+		return result;
 	}
 });
 

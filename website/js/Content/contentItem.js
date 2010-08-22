@@ -3,7 +3,7 @@ var ContentItem = new Class({
 	creator: new GuiCreator(),
 	
 	initialize: function(){
-		this.name = "ContentItem";
+		
 	},
 	
 	CreateGui: function(){
@@ -12,3 +12,5 @@ var ContentItem = new Class({
 	
 });
 
+//static members
+ContentItem.prototype.name = "ContentItem";

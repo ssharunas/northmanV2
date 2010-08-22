@@ -126,8 +126,53 @@
 			return this._CreateItemsAtPath_OtherBrowsers(path, filter);
 		else
 			return this._CreateItemsAtPath_IE(path, filter);
-		
-	}
+	},
 	
+	Query :  function(path){
+		result = null;
+		
+		if (document.implementation && document.implementation.createDocument)
+		{
+			var xml = this._getXmlDocument();
+			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+			
+			result = nodes;
+		}
+		
+		return result;
+	},
+	
+	IntQuery : function(path){
+		result = null;
+
+		nodes = this.Query(path);
+
+		if(nodes.resultType == XPathResult.NUMBER_TYPE)
+			result = nodes.numberValue;
+		
+		return result;
+	},
+						   
+	StringQuery : function(path){
+		result = null;
+
+		nodes = this.Query(path);
+
+		if(nodes.resultType == XPathResult.STRING_TYPE)
+			result = nodes.stringValue;
+		
+		return result;
+	},
+						   
+	BoolQuery : function(path){
+		result = null;
+
+		nodes = this.Query(path);
+
+		if(nodes.resultType == XPathResult.BOOLEAN_TYPE)
+			result = nodes.booleanValue;
+		
+		return result;
+	}
  });
  

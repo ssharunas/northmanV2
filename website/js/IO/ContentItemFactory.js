@@ -52,11 +52,11 @@ ContentItemFactory = new function(){
 	}
 		
 	this.SetProperty = function(object, propertyTagName, propertyValue){
-	    opera.postError("Setting property " + propertyTagName + " to "  + propertyValue + " of object " + object.name);
+	    //opera.postError("Setting property " + propertyTagName + " to "  + propertyValue + " of object " + object.name);
 		if(object && propertyTagName && propertyValue){
-			opera.postError("\t1 check pass checking " + mapping[object.name][propertyTagName]);
+			//opera.postError("\t1 check pass checking " + mapping[object.name][propertyTagName]);
 			if(this.IsPropertyOfObject(object, propertyTagName)){
-				opera.postError("\t2 check pass");
+				//opera.postError("\t2 check pass");
 				object[mapping[object.name][propertyTagName]] = propertyValue;
 				
 			}

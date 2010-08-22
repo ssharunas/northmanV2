@@ -1,11 +1,15 @@
 var GroupItem = new Class({
 	
-	Extends: ContentItem,
+	Extends: CompositionContentItem,
 
+	creator: new GroupCreator(),
+	
 	initialize: function(value, children){
-		this.name = "GroupItem";
 		this.value = value;
-		this.children = children;
+		this.parent.children = children;
 	}
 	
 });
+
+//static members
+GroupItem.prototype.name = "GroupItem";

@@ -3,38 +3,39 @@
 	<group name='Žmonės'>
 		<group name='Portretai'>
 			<pic>
-				<src>elias1.jpg</src>
+				<src>http://www.northman.lt/files/elias1.jpg</src>
+				<title>Elias. Argentina</title>
 			</pic>
-			<pic src="latin_america-229_(1).jpg" title="Lotynų amerika"></pic>
-			<pic src="tango-344.jpg"></pic>
+			<pic src="http://www.northman.lt/files/latin_america-229_(1).jpg" title="Kada širdis supulsuoja"></pic>
+			<pic src="http://www.northman.lt/files/tango-344.jpg" title="Akių užuolaidos. Argentina"></pic>
 			<pic>
-				<src>tango-161.jpg</src>
-				<title>Tang0</title>
+				<src>http://www.northman.lt/files/tango-161.jpg</src>
+				<title>Godumas. Argentina</title>
 			</pic>
-			<pic><src>tango-11.jpg</src></pic>
-			<pic><src>tyli_moters_daina3.jpg</src></pic>
+			<pic title="Dėdė Xaviero" src="http://www.northman.lt/files/tango-11.jpg"></pic>
+			<pic title="Tyli moters daina. Argentina" src="http://www.northman.lt/files/tyli_moters_daina3.jpg"></pic>
 		</group>
+		
+		<group name='Veidai'>
+		 	<pic src="http://www.northman.lt/files/tango-693.jpg" title="Akiu ugnis. Argentina"/>
+			<pic src="http://www.northman.lt/files/tango-9.jpg" title="Milonga. Argentina"/>
+ <pic src="http://www.northman.lt/files/tango-65.jpg" title="Flamenco"/>
+			<pic src="http://www.northman.lt/files/tibetans.jpg" title="Tremtis. Indija"/>
+			<pic src="http://www.northman.lt/files/three_young_monks_with_cups_of_delicious_ric.jpg" title="Trys jauni vienuoliukai su labai skanių ryžių puodeliais. Indija"/>
+			<pic src="http://www.northman.lt/files/the_knowledge_of_centuries_in_man.jpg" title="Žinios žmoguje. Indija"/>
+		</group>
+		
 	</group>
-	<group name='Žmonės2'>
-		<group name='Portretai2'>
-			<pic>
-				<src>elias1.jpg</src>
-			</pic>
-			<pic src="latin_america-229_(1).jpg"></pic>
-			<pic src="tango-344.jpg"></pic>
-			<pic><src>tango-161.jpg</src></pic>
-			<pic><src>tango-11.jpg</src></pic>
-			<pic><src>tyli_moters_daina3.jpg</src></pic>
+	
+	<group name='Religijos akys'>
+		<group name="Simboliai">
+			<pic src="http://www.northman.lt/files/time_erases_everything.jpg" title="Laikas ištrina viską. Lietuva"/>
+			<pic src="http://www.northman.lt/files/tibetan_prayer_flags_in_the_himalaya_sky.jpg" title="Maldos vėliavos Himalajų danguje, Nepalas."/>
+			<pic src="http://www.northman.lt/files/the_way_to_the_promised_land.jpg" title="Kelias į pažadėtąją žemę. Lietuva"/>
+			<pic src="http://www.northman.lt/files/the_song_of_a_bodhisatvas_heart.jpg" title="Bodisatvos širdies daina. Indija"/>
+			<pic src="http://www.northman.lt/files/the_prayer_wheel_in_the_mantras_warmth.jpg" title="Maldos malūno šiluma. Indija"/>
+			<pic src="http://www.northman.lt/files/tengboche_monastery.jpg" title="Tengboče vienuolyno viršūnė. Nepalas"/>
 		</group>
-		<group name='Portretai3'>
-			<pic>
-				<src>elias1.jpg</src>
-			</pic>
-			<pic src="latin_america-229_(1).jpg"></pic>
-			<pic src="tango-344.jpg"></pic>
-			<pic><src>tango-161.jpg</src></pic>
-			<pic><src>tango-11.jpg</src></pic>
-			<pic><src>tyli_moters_daina3.jpg</src></pic>
-		</group>
+		
 	</group>
 </root>
