@@ -1,6 +1,6 @@
 <html>
   <head>
-  <meta http-equiv=" Cache-Control" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <script src="js/settings.js" type="text/javascript"></script>
   
   <script src="mootools-1.2.4-core-nc.js" type="text/javascript"></script>
@@ -27,15 +27,21 @@
   <script src="js/IO/IOCache.js" type="text/javascript"></script>
   
   <script type="text/javascript">
+  
+	a = new IOCache();
+	
 	function Test(i){
-		a = new IOCache();
-		z = a.GetItems("Portretai", i, 3);
+		z = a.GetItems("Merged", i, 10);
 		document.getElementById("container").innerHTML = z.CreateGui();
 	}
   </script>
     <title>Title</title>
   </head>
   <body>
+	<a href="#" onclick="Test(0)">0</a>
+	<a href="#" onclick="Test(1)">1</a>
+	
 	<div id="container"></div>
+	<img id="image"/>
   </body>
 </html>

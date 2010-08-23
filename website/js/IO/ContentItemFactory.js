@@ -1,17 +1,3 @@
-mapping = {
-	"GroupItem" : { 
-		//xmlName : objectName
-		"name" : "value"
-	},
-	
-	"PictureItem" : {
-		"title" : "title",
-		"src" : "src"
-	}
-}
-
-
-	
 ContentItemFactory = new function(){
 	var map = new Array();
 	map.containsKey = function(key){ return this[key] != undefined; }

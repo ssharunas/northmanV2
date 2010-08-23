@@ -10,8 +10,10 @@ var PictureCreator = new Class({
 				html = "<img title=\"" + 
 					(item.title ? item.title : "Paveikslėlis") + 
 					"\" src=\"" + 
-					item.src + 
-					"\" />";
+					this.GetDomain() +
+					(item.thumb ? item.thumb : settings.defaultThumbAddon + item.src) + "\"" +
+					"onclick='$(image).src=\"" + this.GetDomain() + item.src + "\"'" +
+					"/>";
 			
 			return html;
 		}
