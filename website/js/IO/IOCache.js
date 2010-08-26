@@ -59,6 +59,38 @@ var IOCache = new Class({
 		opera.postError("GETTING ITEMS OF " + groupName +"; page: " + index + " / " + count);
 		
 		var owner = this;
+		
+		if(!this.cachedThumbs[groupName]){
+			this.cachedThumbs[groupName] = 1;
+			opera.postError("CACHE LEVEL 1. " + groupName);
+			
+			owner.CacheImages(groupName, index, count, function(img) { return img.toThumbImage(); }, function()
+			{
+				opera.postError("CACHE LEVEL 2. " + groupName);
+				owner.CacheImages(groupName, 0, owner.ioCore.ItemCountInGroup(groupName), function(img) { return img.toThumbImage(); }, function()
+				{
+					opera.postError("CACHE LEVEL 3. " + groupName);
+					
+					owner.CacheImages(groupName, index, count, function(img) { return img.toImage(); }, function()
+					{
+						opera.postError("CACHE LEVEL 4. " + groupName);
+						owner.CacheImages(groupName, 0, owner.ioCore.ItemCountInGroup(groupName), function(img) { return img.toImage(); }, function()
+						{
+								opera.postError("CACHE COMPLETED " + groupName);
+								
+						});
+					});
+				});
+			});
+			
+			
+		}
+		
+		return this.ioCore.GetItems(groupName, index, count);
+	},
+	
+ 	CacheImages : function (groupName, index, count, createImageFunc, callback)
+ 	{
 		lastGroupName = groupName;
 		picLoadCounter=count;
 		
@@ -69,48 +101,26 @@ var IOCache = new Class({
 				picLoadCounter--;
 				if(!picLoadCounter){
 					//opera.postError("IMG trigered next cache: " + this.src);
-					owner.GetItems(groupName, index + 1, count);
+					if(callback)
+						callback();
 				}
 			}
-		}
-		
-		if(settings.cacheThumbs && !this.cachedThumbs[groupName]){
-			//opera.postError(this.name + " CACHED: " + this.cachedThumbs[groupName]);
-			this.cachedThumbs[groupName] = 1;
-			setTimeout("IOCache.CacheThumbs('"+groupName+"')",0);
 		}
 		
 		var items = this.ioCore.GetItems(groupName, index, count);
-		this._cache(groupName, index, count, items);
-		
-		if(items && items.children){
-			for(var i = 0; i < items.children.length; i++){
-				if(items.children[i].name == PictureItem.prototype.name){
-					var img = items.children[i].toImage();
-					img._nextIndex = i + (index + 1 ) * count ;
-					img._groupName = groupName;
-					img.onload = OnPicLoaded;
-				}
+		for(var i = 0; i < items.children.length; i++){
+			if(items.children[i].name == PictureItem.prototype.name){
+				var img = createImageFunc(items.children[i]);
+				img._groupName = groupName;
+				img.onload = OnPicLoaded;
 			}
 		}
-		
-		return items;
 	}
+	
 })
 
 IOCache.owner = function(){
 	if(!this._owner)
 		this._owner = new IOCache();
 	return this._owner;
-}
-
-IOCache.CacheThumbs = function (groupName){
-	owner = IOCache.owner();
-	//opera.postError("Caching thumbs for group "+groupName);
-	var items = owner.ioCore.GetItems(groupName, 0, owner.ioCore.ItemCountInGroup(groupName));
-	for(var i = 0; i < items.children.length; i++){
-		if(items.children[i].name == PictureItem.prototype.name){
-			var img = items.children[i].toThumbImage();
-		}
-	}
 }

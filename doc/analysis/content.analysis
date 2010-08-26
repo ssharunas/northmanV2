@@ -1,0 +1,16 @@
+[HOME] {Ar tai tikrai tu?}
+    Simple introduction. About page.
+[PRUDUCTS] {Paslaugos}
+    Photo busness. Some sample pictures.
+[READINGS] {Skaitiniai}
+    [ARTICLE {n}] number af articles
+	[TITLE]
+	[ABSTRACT]
+	[TEXT]
+[CONTACTS]
+[PHOTO GALERY]
+    [GROUP {n}] number of groups
+	[PICTURES {0..n}]
+	[GROUP {n}]
+	    [PICTURES {n}]
+	    

@@ -1,8 +1,7 @@
 settings = {
 	xmlDocURL : "file_list.xml",
-	defaultThumbAddon : "thumb_",
+	defaultThumbAddon : "thumb_"
 	
-	cacheThumbs : true
 }
 
 mapping = {
