@@ -1,14 +1,10 @@
-var CompositionContentItem = new Class({
+function CompositionContentItem()
+{
+	this.parent = new ContentItem();
+	this.name = "CompositionContentItem";
+	this.creator = new CompositionContentItemCreator(),
 	
-	Extends: ContentItem,
+	this.children = null;
+};
 
-	creator: new CompositionContentItemCreator(),
-	
-	initialize: function(children){
-		this.children = children;
-	}
-	
-});
-
-//static members
-CompositionContentItem.prototype.name = "CompositionContentItem";
+CompositionContentItem.prototype = new ContentItem();

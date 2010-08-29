@@ -1,38 +1,37 @@
 <html>
-	<head>
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<script src="js/settings.js" type="text/javascript"></script>
 
-	<script src="mootools-1.2.4-core-nc.js" type="text/javascript"></script>
-	<script src="dump.js" type="text/javascript"></script>
-	<script src="js/client.js" type="text/javascript"></script>
-	<script src="js/factory.js" type="text/javascript"></script>
-	<script src="js/settings.js" type="text/javascript"></script>
-
-	<script src="js/GUI/GUICore.js" type="text/javascript"></script>
-	<script src="js/GUI/GuiCreator.js" type="text/javascript"></script>
-	<script src="js/GUI/GroupCreator.js" type="text/javascript"></script>
-	<script src="js/GUI/PictureCreator.js" type="text/javascript"></script>
-	<script src="js/GUI/CompositionContentItemCreator.js" type="text/javascript"></script>
-
-	<script src="js/Content/contentItem.js" type="text/javascript"></script>
-	<script src="js/Content/CompositionContentItem.js" type="text/javascript"></script>
-	<script src="js/Content/groupItem.js" type="text/javascript"></script>
-	<script src="js/Content/pictureItem.js" type="text/javascript"></script>
-
-	<script src="js/IO/ContentItemFactory.js" type="text/javascript"></script>
-	<script src="js/IO/XmlReader.js" type="text/javascript"></script>
-	<script src="js/IO/IOInterface.js" type="text/javascript"></script>
-	<script src="js/IO/IOCore.js" type="text/javascript"></script>
-	<script src="js/IO/IOCache.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-
-	<script type="text/javascript">
-
-	var io = settings.io();
-
+  <head>
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <script src="js/settings.js" type="text/javascript"></script>
+  
+<!--   <script src="mootools-1.2.4-core-nc.js" type="text/javascript"></script>
+  <script src="dump.js" type="text/javascript"></script> -->
+  <script src="js/client.js" type="text/javascript"></script>
+  <script src="js/settings.js" type="text/javascript"></script>
+    
+  <script src="js/GUI/GUICore.js" type="text/javascript"></script>
+  <script src="js/GUI/GuiCreator.js" type="text/javascript"></script>
+  <script src="js/GUI/GroupCreator.js" type="text/javascript"></script>
+  <script src="js/GUI/PictureCreator.js" type="text/javascript"></script>
+  <script src="js/GUI/CompositionContentItemCreator.js" type="text/javascript"></script>
+  
+  <script src="js/Content/contentItem.js" type="text/javascript"></script>
+  <script src="js/Content/CompositionContentItem.js" type="text/javascript"></script>
+  <script src="js/Content/groupItem.js" type="text/javascript"></script>
+  <script src="js/Content/pictureItem.js" type="text/javascript"></script>
+    
+  <script src="js/IO/ContentItemFactory.js" type="text/javascript"></script>
+  <script src="js/IO/XmlReader.js" type="text/javascript"></script>
+  <script src="js/IO/IOInterface.js" type="text/javascript"></script>
+  <script src="js/IO/IOCore.js" type="text/javascript"></script>
+  <script src="js/IO/IOCache.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+  
+	a = new IOCache();
+	
 	function Test(i){
-		z = a.GetItems("Merged", i, 10);
+		z = a.GetSubGroupNames();
 		document.getElementById("container").innerHTML = z.CreateGui();
 	}
 	

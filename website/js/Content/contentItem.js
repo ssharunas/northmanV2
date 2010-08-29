@@ -1,16 +1,9 @@
-var ContentItem = new Class({
+function ContentItem()
+{
+	this.name = "ContentItem";
+	this.creator = new GuiCreator();
 	
-	creator: new GuiCreator(),
-	
-	initialize: function(){
-		
-	},
-	
-	CreateGui: function(){
+	this.CreateGui = function(){
 		return this.creator.Create(this);
 	}
-	
-});
-
-//static members
-ContentItem.prototype.name = "ContentItem";
+};

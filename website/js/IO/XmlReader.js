@@ -1,6 +1,7 @@
- var XmlReader = new Class({
-	
-	_getXmlDocument: function()	{
+ function XmlReader()
+ {
+	function _getXmlDocument()
+	{
 		var doc = null;
 		if(!this._cachedDoc){
 			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -21,20 +22,19 @@
 		}
 
 		return doc;
-	},
+	}
 	
 	// code for IE
-	_CreateItemsAtPath_IE: function(path, filter){
-		var xml = this._getXmlDocument();
+	function _CreateItemsAtPath_IE(path, filter){
+		var xml = _getXmlDocument();
 		
 		if (window.ActiveXObject){
 			result = xml.selectNodes(path);
 		}
-	},
+	}
 						   
 	// code for Mozilla, Firefox, Opera, etc.
-	_CreateItemsAtPath_OtherBrowsers : function(/*string*/ path, /*string[]*/ filter){
-		
+	function _CreateItemsAtPath_OtherBrowsers(/*string*/ path, /*string[]*/ filter){
 		var result = new Array();
 		
 		function IsInFilter(item, filter)
@@ -94,7 +94,7 @@
 		
 		if (document.implementation && document.implementation.createDocument)
 		{
-			var xml = this._getXmlDocument();
+			var xml = _getXmlDocument();
 			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
 			
 			var item = nodes.iterateNext();
@@ -111,38 +111,30 @@
 		}
 		
 		return result;
-	},
+	}
 	
-	initialize: function(){
-		 //setTimeout("XmlReader.prototype._getXmlDocument()", 0);
-	},
-	
-	CreateItemsAtPath : function(path){
-		this.CreateItemsAtPath(path, null);
-	},
-						   
-	CreateItemsAtPath : function(path, filter){
+	this.CreateItemsAtPath = function(path, filter){
 		if(document.implementation && document.implementation.createDocument)
-			return this._CreateItemsAtPath_OtherBrowsers(path, filter);
+			return _CreateItemsAtPath_OtherBrowsers(path, filter);
 		else
-			return this._CreateItemsAtPath_IE(path, filter);
-	},
+			return _CreateItemsAtPath_IE(path, filter);
+	}
 	
-	Query :  function(path){
+	this.Query = function(path){
 		result = null;
 		
 		if (document.implementation && document.implementation.createDocument)
 		{
-			var xml = this._getXmlDocument();
+			var xml = _getXmlDocument();
 			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
 			
 			result = nodes;
 		}
 		
 		return result;
-	},
+	}
 	
-	IntQuery : function(path){
+	this.IntQuery = function(path){
 		result = null;
 
 		nodes = this.Query(path);
@@ -151,9 +143,9 @@
 			result = nodes.numberValue;
 		
 		return result;
-	},
+	}
 						   
-	StringQuery : function(path){
+	this.StringQuery = function(path){
 		result = null;
 
 		nodes = this.Query(path);
@@ -162,9 +154,9 @@
 			result = nodes.stringValue;
 		
 		return result;
-	},
+	}
 						   
-	BoolQuery : function(path){
+	this.BoolQuery = function(path){
 		result = null;
 
 		nodes = this.Query(path);
@@ -174,5 +166,5 @@
 		
 		return result;
 	}
- });
+ };
  

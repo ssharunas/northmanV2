@@ -1,31 +1,20 @@
-AsyncChain = function(){
-	var items = new Array();
-	
-	this.Add = function(fun, params){
-		items.push([fun, params]);
-	}
-	
-	this.RunAsync = function(){
-		setTimeout( function(){
-			for(i = 0; i < items.length; i++){
-				items[i][0](items[i][1]);
-			}
-		}, 0);
-	}
-}
+function IOCache()
+{
+	this.parent = new IOInterface();
 
-var IOCache = new Class({
+	this.ioCore = new IOCore();
+	this.cachedThumbs = new Array();
+	this.cachedPages = new Array();
+	this.owner = this;
 	
-	implements : IOInterface,
-	
-	_isCached: function(groupName, index, count){
+	function _isCached(groupName, index, count){
 		var chached = false;
 		if(this.cachedThumbs && this.cachedThumbs[index] && this.cachedThumbs[index][count])
 			chached = true;
 		return chached;
-	},
+	}
 	
-	_cache : function(groupName, index, count, items){
+	function _cache(groupName, index, count, items){
 		if(!this.cachedThumbs)
 			this.cachedThumbs = new Array();
 		
@@ -33,28 +22,17 @@ var IOCache = new Class({
 			this.cachedThumbs[index] = new Array();
 		
 		this.cachedThumbs[index][count] = items;
-	},
+	}
 	
-	initialize: function(){
-		this.name = "Nam Nam";
-		this.ioCore = new IOCore();
-		this.cachedThumbs = new Array();
-		this.cachedPages = new Array();
-		this.owner = this;
-	},
-	
-	GetSubGroupNames : function(groupName){
+	this.GetSubGroupNames = function(groupName){
 		return this.ioCore.GetSubGroupNames(groupName);
-	},
+	}
 	
 	//TODO: 1. load visable thumbs
 	//      2. load all thumbs of visable group
 	//      3. load images of visable page
 	//      4. load images of visable group
-	GetItems : function (groupName, index, count){
-		
-		if(this._isCached(groupName, index, count))
-			return this.cachedThumbs[index][count];
+	this.GetItems = function (groupName, index, count){
 		
 		opera.postError("GETTING ITEMS OF " + groupName +"; page: " + index + " / " + count);
 		
@@ -87,15 +65,15 @@ var IOCache = new Class({
 		}
 		
 		return this.ioCore.GetItems(groupName, index, count);
-	},
+	}
 	
- 	CacheImages : function (groupName, index, count, createImageFunc, callback)
+ 	this.CacheImages = function (groupName, index, count, createImageFunc, callback)
  	{
 		lastGroupName = groupName;
 		picLoadCounter=count;
 		
 		function OnPicLoaded(){
-			//opera.postError("IMG loaded: " + this.src + " group: " + this._groupName + " lastGroupName: " + lastGroupName);
+			opera.postError("IMG loaded: " + this.src + " group: " + this._groupName + " lastGroupName: " + lastGroupName);
 			if(lastGroupName == this._groupName){
 				//opera.postError("IMG is from good group: " + this.src + " / " + picLoadCounter);
 				picLoadCounter--;
@@ -117,10 +95,6 @@ var IOCache = new Class({
 		}
 	}
 	
-})
-
-IOCache.owner = function(){
-	if(!this._owner)
-		this._owner = new IOCache();
-	return this._owner;
 }
+
+IOCore.prototype = new IOInterface();

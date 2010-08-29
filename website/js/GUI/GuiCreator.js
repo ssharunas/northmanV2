@@ -1,18 +1,14 @@
-var GuiCreator = new Class({
+function GuiCreator(){
 	
-	initialize: function(){
-		
-	},
-						   
-	Create : function(item){
+	this.Create = function(item){
 		//TODO: remove
 		return "<div name='" + item.name + "'>" + item.toString() + "</div>";
-	},
+	}
 	
-	GetDomain : function(){
+	this.GetDomain = function(){
 		if(!this.ioCore)
 			this.ioCore = new IOCore();
 		
 		return this.ioCore.GetDomain();
 	}
-});
+}
