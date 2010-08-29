@@ -4,7 +4,7 @@ var CompositionContentItem = new Class({
 
 	creator: new CompositionContentItemCreator(),
 	
-	initialize: function(value, children){
+	initialize: function(children){
 		this.children = children;
 	}
 	

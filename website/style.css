@@ -1,0 +1,22 @@
+#header { 
+	height: 100px;
+	width: 100%;
+	background-color: #e7f74e;
+}
+#menu { 
+	height: 100px;
+	background-color: #adb5be;
+	width: 200px;
+	float: left;
+}
+#content { 
+	background-color: #e2a6a6;
+	margin-left: 205px;
+	height: 10px;
+	min-height: 300px;
+}
+#footer { 
+	background-color: #7ecc87;
+	clear: left;
+	height: 20px;
+}

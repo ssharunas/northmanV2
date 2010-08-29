@@ -10,6 +10,9 @@ var GroupCreator = new Class({
 				html = "<div class=\"group\">";
 				html += '<div class="groupName">' + item.value + '</div>';
 				
+				opera.postError("" + item + " / " + item.name);
+				
+				
 				html += item.parent.CreateGui();
 // 				if(item.children != null){
 // 					for(var i = 0; i < item.children.length; i++){

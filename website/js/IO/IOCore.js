@@ -22,18 +22,27 @@ var IOCore = new Class({
 	},
 	
 	GetSubGroupNames : function(groupName){
+		var result = null;
+		var items = null;
+		
 		if(groupName)
-			return this.reader.CreateItemsAtPath("/root/group[@name='"+groupName+"']", ["group"]);
+			items = this.reader.CreateItemsAtPath("/root/group[@name='"+groupName+"']", ["group"]);
 		else
-			return this.reader.CreateItemsAtPath("/root/group", ["group"]);
+			items = this.reader.CreateItemsAtPath("/root/group", ["group"]);
+		
+		if(items){
+			result = new CompositionContentItem();
+			result.children = items;
+		}
+		
+		return result;
 	},
 	
 	GetItems : function (groupName, index, count){
 		var result = null;
 		
 		if(groupName){
-			var items = new Array();
-			items = this.reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
+			var items = this.reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
 			
 			if(items){
 				var imgFrom = index * count;

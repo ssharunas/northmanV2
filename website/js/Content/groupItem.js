@@ -6,7 +6,7 @@ var GroupItem = new Class({
 	
 	initialize: function(value, children){
 		this.value = value;
-		this.parent.children = children;
+		this.parent(children);
 	}
 	
 });
