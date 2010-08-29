@@ -39,4 +39,7 @@ function Client(){
 	}
 }
 
+$ = function(name){
+	return document.getElementById(name);
+}
 

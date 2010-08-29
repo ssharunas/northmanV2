@@ -3,10 +3,9 @@
   <meta http-equiv="Cache-Control" content="no-cache">
   <script src="js/settings.js" type="text/javascript"></script>
   
-  <script src="mootools-1.2.4-core-nc.js" type="text/javascript"></script>
-  <script src="dump.js" type="text/javascript"></script>
+<!--   <script src="mootools-1.2.4-core-nc.js" type="text/javascript"></script>
+  <script src="dump.js" type="text/javascript"></script> -->
   <script src="js/client.js" type="text/javascript"></script>
-  <script src="js/factory.js" type="text/javascript"></script>
   <script src="js/settings.js" type="text/javascript"></script>
     
   <script src="js/GUI/GUICore.js" type="text/javascript"></script>
@@ -31,7 +30,7 @@
 	a = new IOCache();
 	
 	function Test(i){
-		z = a.GetItems("Merged", i, 10);
+		z = a.GetSubGroupNames();
 		document.getElementById("container").innerHTML = z.CreateGui();
 	}
   </script>

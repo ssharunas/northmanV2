@@ -1,20 +1,18 @@
-var PictureItem = new Class({
+function PictureItem(src, title)
+{
+	this.parent = new ContentItem();
+	this.name =  "PictureItem";
+	this.creator = new PictureCreator();
 	
-	Extends: ContentItem,
-
-	creator: new PictureCreator(),
+	this.src = src;
+	this.title = title;
+	this.thumb = null;
 	
-	initialize: function(src, title){
-		this.src = src;
-		this.title = title;
-		this.thumb = null;
-	},
-	
-	toString : function(){
+	this.toString = function(){
 		return this.CreateGui();
-	},
+	}
 	
-	toImage : function(){
+	this.toImage = function(){
 		if(!this.ioCore)
 			this.ioCore = new IOCore();
 		
@@ -23,9 +21,9 @@ var PictureItem = new Class({
 		img.title = this.title;
 		
 		return img;
-	},
+	}
 	
-	toThumbImage : function(){
+	this.toThumbImage = function(){
 		if(!this.ioCore)
 			this.ioCore = new IOCore();
 		
@@ -38,7 +36,7 @@ var PictureItem = new Class({
 		
 		return img;
 	}
-});
+};
 
 //static members
-PictureItem.prototype.name = "PictureItem";
+PictureItem.prototype = new ContentItem();

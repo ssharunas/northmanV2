@@ -1,39 +1,36 @@
-var IOCore = new Class({
+function IOCore()
+{
+	var reader = new XmlReader();
+	this.patent = new IOInterface();
 	
-	implements: IOInterface,
-	
-	initialize : function(){
-		this.reader = new XmlReader();
-	},
-	
-	ItemCountInGroup: function(groupName){
-		return this.reader.IntQuery("count(//group[@name='"+groupName+"']/pic)");
-	},
-					   
-	GetDomain : function(){
+	this.ItemCountInGroup = function(groupName){
+		return reader.IntQuery("count(//group[@name='"+groupName+"']/pic)");
+	}
+	   
+	this.GetDomain = function(){
 		if(!this.domain){
-			this.domain = this.reader.StringQuery("string(/root/domain)");
+			this.domain = reader.StringQuery("string(/root/domain)");
 			
 			if(this.domain && this.domain[this.domain.length - 1] != '/')
 				this.domain += '/';
 		}
 		
 		return this.domain;
-	},
+	}
 	
-	GetSubGroupNames : function(groupName){
+	this.GetSubGroupNames = function(groupName){
 		if(groupName)
-			return this.reader.CreateItemsAtPath("/root/group[@name='"+groupName+"']", ["group"]);
+			return reader.CreateItemsAtPath("/root/group[@name='"+groupName+"']", ["group"]);
 		else
-			return this.reader.CreateItemsAtPath("/root/group", ["group"]);
-	},
+			return reader.CreateItemsAtPath("/root/group", ["group"]);
+	}
 	
-	GetItems : function (groupName, index, count){
+	this.GetItems = function (groupName, index, count){
 		var result = null;
 		
 		if(groupName){
 			var items = new Array();
-			items = this.reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
+			items = reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
 			
 			if(items){
 				var imgFrom = index * count;
@@ -46,5 +43,6 @@ var IOCore = new Class({
 		
 		return result;
 	}
-});
+};
 
+IOCore.prototype = new IOInterface();
