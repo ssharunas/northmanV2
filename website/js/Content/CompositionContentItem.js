@@ -4,7 +4,7 @@ function CompositionContentItem()
 	this.name = "CompositionContentItem";
 	this.creator = new CompositionContentItemCreator(),
 	
-	this.children = null;
+	this.children = new Array();
 };
 
 CompositionContentItem.prototype = new ContentItem();

@@ -23,9 +23,9 @@ function IOCore()
 		var items = null;
 		
 		if(groupName)
-			items = this.reader.CreateItemsAtPath("/root/group[@name='"+groupName+"']", ["group"]);
+			items = reader.CreateItemsAtPath("/root/group[@name='"+groupName+"']", ["group"]);
 		else
-			items = this.reader.CreateItemsAtPath("/root/group", ["group"]);
+			items = reader.CreateItemsAtPath("/root/group", ["group"]);
 		
 		if(items){
 			result = new CompositionContentItem();
@@ -39,7 +39,7 @@ function IOCore()
 		var result = null;
 		
 		if(groupName){
-			var items = this.reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
+			var items = reader.CreateItemsAtPath("//group[@name='"+groupName+"']/pic");
 			
 			if(items){
 				var imgFrom = index * count;

@@ -86,11 +86,13 @@ function IOCache()
 		}
 		
 		var items = this.ioCore.GetItems(groupName, index, count);
-		for(var i = 0; i < items.children.length; i++){
-			if(items.children[i].name == PictureItem.prototype.name){
-				var img = createImageFunc(items.children[i]);
-				img._groupName = groupName;
-				img.onload = OnPicLoaded;
+		if(items && items.children){
+			for(var i = 0; i < items.children.length; i++){
+				if(items.children[i].name == PictureItem.prototype.name){
+					var img = createImageFunc(items.children[i]);
+					img._groupName = groupName;
+					img.onload = OnPicLoaded;
+				}
 			}
 		}
 	}

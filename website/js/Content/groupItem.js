@@ -4,7 +4,8 @@ function GroupItem()
 	this.name = "GroupItem";
 	this.creator = new GroupCreator();
 
-	this.value = null;	
+	this.value = null;
+	this.children = parent.children;
 };
 
 GroupItem.prototype = new CompositionContentItem();

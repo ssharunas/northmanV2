@@ -25,15 +25,23 @@
   <script src="js/IO/IOInterface.js" type="text/javascript"></script>
   <script src="js/IO/IOCore.js" type="text/javascript"></script>
   <script src="js/IO/IOCache.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   
   <script type="text/javascript">
   
-	a = new IOCache();
+	io = new IOCache();
 	
 	function Test(i){
 		z = a.GetSubGroupNames();
-		document.getElementById("container").innerHTML = z.CreateGui();
+		document.getElementById("content").innerHTML = z.CreateGui();
 	}
+	
+	
+	function ShowPictures(group, page){
+		var pictures = io.GetItems(group, page, 10);
+		document.getElementById("content").innerHTML = ">" + group +(pictures ?  pictures.CreateGui() : "");
+	}
+	
 	
 	function Start(){
 		var menu = io.GetSubGroupNames(null);
