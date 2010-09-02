@@ -36,6 +36,15 @@
 		document.getElementById("content").innerHTML = z.CreateGui();
 	}
 	
+	function OnPicureClicked(src){
+		if(!(didysis = document.getElementById("didysis"))){
+			img = new Image;
+			img.id = "didysis";
+			img.src = src;
+			document.getElementById("content").appendChild(img);
+		}else
+			didysis.src = src;
+	}
 	
 	function ShowPictures(group, page){
 		var pictures = io.GetItems(group, page, 10);

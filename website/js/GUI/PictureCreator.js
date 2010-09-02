@@ -10,7 +10,7 @@ function PictureCreator(){
 				"\" src=\"" + 
 				this.GetDomain() +
 				(item.thumb ? item.thumb : settings.defaultThumbAddon + item.src) + "\"" +
-				"onclick='$(\"image\").src=\"" + this.GetDomain() + item.src + "\"'" +
+				"onclick=\"OnPicureClicked('" + this.GetDomain() + item.src + "')\"" +
 				"/>";
 		
 		return html;

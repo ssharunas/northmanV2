@@ -1,3 +1,6 @@
+if(!opera)
+	opera = new Object();
+
 settings = {
 	xmlDocURL : "file_list.xml",
 	defaultThumbAddon : "thumb_",
