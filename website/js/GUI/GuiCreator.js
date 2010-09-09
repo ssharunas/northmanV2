@@ -11,4 +11,11 @@ function GuiCreator(){
 		
 		return this.ioCore.GetDomain();
 	}
+	
+	this.ItemCountInGroup = function(groupName){
+		if(!this.ioCore)
+			this.ioCore = new IOCore();
+		
+		return this.ioCore.ItemCountInGroup(groupName);
+	}
 }

@@ -36,19 +36,54 @@
 		document.getElementById("content").innerHTML = z.CreateGui();
 	}
 	
-	function OnPicureClicked(src){
-		if(!(didysis = document.getElementById("didysis"))){
-			img = new Image;
-			img.id = "didysis";
-			img.src = src;
-			document.getElementById("content").appendChild(img);
-		}else
-			didysis.src = src;
+	function AnimateUp(){
+		if(didysis = document.getElementById("didysis")){
+			didysis.style.opacity = didysis.style.opacity * 1 + 0.1;
+			
+			if(didysis.style.opacity < 1)
+				setTimeout("AnimateUp()", 30);
+		}
 	}
+	
+	function AnimateDown(){
+		if(apatinis = document.getElementById("apatinis")){
+			apatinis.style.opacity = apatinis.style.opacity * 1 - 0.1;
+			
+			if(apatinis.style.opacity > 0)
+				setTimeout("AnimateDown()", 30);
+			else
+				apatinis.style.display = "none";
+		}
+	}
+	
+	function OnPicureClicked(src){
+		didysis = document.getElementById("didysis");
+		apatinis = document.getElementById("apatinis");
+		
+		if(didysis && apatinis){
+			apatinis.src = didysis.src;
+			didysis.src = src;
+			
+			if(apatinis.src)
+				apatinis.style.display = "block";
+			
+			if(didysis.src)
+				didysis.style.display = "block";
+				
+			didysis.style.opacity = 0;
+			apatinis.style.opacity = 1;
+			
+			AnimateUp();
+			AnimateDown();
+		}
+		
+	}
+	
+	
 	
 	function ShowPictures(group, page){
 		var pictures = io.GetItems(group, page, 10);
-		document.getElementById("content").innerHTML = ">" + group +(pictures ?  pictures.CreateGui() : "");
+		document.getElementById("thumbMenu").innerHTML = (pictures ?  pictures.CreateGui() : "");
 	}
 	
 	
@@ -63,27 +98,17 @@
 
 	<body onload="Start()">
 
-	<div id="header"></div>
+	<div id="header"><img src="test.png"/></div>
 	<div id="menu"></div>
+	
 	<div id="content">
-	<pre>
-[HOME] {Ar tai tikrai tu?}
-    Simple introduction. About page.
-[PRUDUCTS] {Paslaugos}
-    Photo busness. Some sample pictures.
-[READINGS] {Skaitiniai}
-    [ARTICLE {n}] number af articles
-	[TITLE]
-	[ABSTRACT]
-	[TEXT]
-[CONTACTS]
-[PHOTO GALERY]
-    [GROUP {n}] number of groups
-	[PICTURES {0..n}]
-	[GROUP {n}]
-	    [PICTURES {n}]
-</pre>
-</div>
+	  <div id="thumbMenu"></div>
+	  <div id="bigContainer" >
+		<img id="apatinis" />
+		<img id="didysis" onclick="window.location=this.src"/>
+	  </div>
+	</div>
+	
 	<div id="footer"></div>
 	
   </body>
